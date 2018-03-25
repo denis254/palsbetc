@@ -26,7 +26,7 @@ SECRET_KEY = '(k#r1=fxip4p5+ku52s@oym%5yj%u=u-kz#uq#d056px*@8)('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['palsbet.herokuapp.com']
 
 
 # Application definition
