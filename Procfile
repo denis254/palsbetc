@@ -1,1 +1,1 @@
-web: gunicorn palsbetweb.wsgi --log-file -
+web: gunicorn palsbet.wsgi --log-file -
