@@ -1,0 +1,128 @@
+{% extends "main_template.html" %}
+
+{% block title %}
+
+Best Soccer Predictions Website
+
+{% endblock %}
+
+{% block header %}
+
+{% include "header.html" %}
+
+{% endblock %}
+
+{% block over_view_contact %}
+
+{% include "over_view_contact.html" %}
+
+{% endblock %}
+
+{% block content %}
+
+{% for item in home_page_teams %}
+{% if forloop.first %}
+       <i><h4>{{item.published_date}}<h4></i>
+   {%endif%}
+{% endfor %}
+
+<table border="2" cellpadding = "5">
+
+  <tr style='background-color: indigo'>
+<th style='color: white'>Country</th>
+<th style='color: white'>Home Team</th>
+<th style='color: white'>Home Score</th>
+<th style='color: white'>Away Score</th>
+<th style='color: white'>Away Team</th>
+<th style='color: white'>Prediction</th>
+<th style='color: white'>Status</th>
+</tr>
+
+    {% for item in home_page_teams %}
+    <tr>
+        <td style='background-color: plum;' >{{ item.country }}</td>
+
+        <td >{{ item.home_team }}</td>
+
+        <td style='background-color: plum;' >{{ item.home_score}}</td>
+
+        <td style='background-color: plum;' >{{ item.away_score}}</td>
+
+        <td>{{ item.away_team}}</td>
+
+        <td style='background-color: plum;' >{{ item.prediction}}</td>
+
+        {% if item.status == 'Lost' %}
+
+        <td style='background-color: #FF5733;'>{{ item.status}}</td>
+
+        {% elif item.status == 'Won' %}
+
+        <td style='background-color: Limegreen;' >{{ item.status}}</td>
+
+        {% else %}
+
+        <td >{{ item.status}}</td>
+
+        {% endif %}
+
+
+    </tr>
+    {% endfor %}
+</table>
+
+<br>
+<form action="/viewolderesults/" method="post">
+  {% csrf_token %}
+ <label for="previous"></label>
+      <div  align="right" ><input type="submit" id="back" name="previous"value="VIEW OLDER RESULTS"   /> </div>
+ </form>
+ <br>
+ <p>
+<iframe scrolling='no' frameBorder='0' style='padding:0px; margin:0px; border:0px;border-style:none;border-style:none;' width='728' height='90' src="https://refbanners.com/I?tag=d_61247m_3495c_&site=61247&ad=3495" ></iframe>
+</p>
+ <iframe scrolling='no' frameBorder='0' style='padding:0px; margin:0px; border:0px;border-style:none;border-style:none;' width='250' height='250' src="https://refbanners.com/I?tag=d_61247m_3627c_&site=61247&ad=3627" ></iframe>
+
+ <h2 style="color: indigo" align="center">
+  Most asked questions
+</h2>
+
+<p>
+  <a href="/howmanyodds/"
+style="text-decoration:none">
+<i> How many odds do we post in a day?</i>
+</a> </p>
+
+<p>
+  <a href="/modeofsending/"
+style="text-decoration:none">
+<i> Which means do we send our vip tips?</i>
+</a> </p>
+
+<p>
+  <a href="/timeofsending/"
+style="text-decoration:none">
+<i> When do we send our vip tips?</i>
+</a> </p>
+
+<p>
+  <a href="/rollover/"
+style="text-decoration:none">
+<i> How is the roll over plan working?</i>
+</a> </p>
+
+<p>
+  <a href="/viptips/"
+style="text-decoration:none">
+<i> How would you join our winning vip team?</i>
+</a> </p>
+<br>
+
+
+{% endblock %}
+
+{% block footer %}
+
+{% include "footer.html" %}
+
+{% endblock %}
