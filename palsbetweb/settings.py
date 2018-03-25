@@ -24,7 +24,7 @@ SECRET_KEY = '(k#r1=fxip4p5+ku52s@oym%5yj%u=u-kz#uq#d056px*@8)('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['palsbetweb.herokuapp.com']
+ALLOWED_HOSTS = ['palsbet.herokuapp.com']
 
 
 # Application definition
@@ -82,9 +82,9 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-        import dj_database_url
-        db_from_env = dj_database_url.config(conn_max_age=500)
-        DATABASES['default'].update(db_from_env)
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -124,12 +124,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 
-        STATIC_URL = '/static/'
-        STATICFILES_DIRS = [
-                os.path.join(BASE_DIR, "static"),
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, "static"),
             ]
-        STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-        STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 
 
