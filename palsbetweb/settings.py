@@ -130,6 +130,9 @@ STATICFILES_DIRS = (
     os.path.join(palsbet, 'static'),
 )
 
+heroku config:set DISABLE_COLLECTSTATIC=1
+
+
 LOGIN_REDIRECT_URL = '/home_vip'
 
 LOGOUT_REDIRECT_URL = '/viptips'
