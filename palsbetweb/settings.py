@@ -135,5 +135,9 @@ LOGIN_REDIRECT_URL = '/home_vip'
 
 LOGOUT_REDIRECT_URL = '/viptips'
 
+if 'DATABASE_URL' in os.environ:
+    import dj_database_url
+    DATABASES = {'default': dj_database_url.config()}
+
 admin.site.site_header = 'PalsBet Admin Panel'
 admin.site.site_title = 'PalsBet Admin Panel'
