@@ -2,7 +2,7 @@
 
 {% block title %}
 
-PalsBet.com - Vip Tips
+PalsBet.com - Vip Services
 
 {% endblock %}
 
@@ -64,28 +64,63 @@ hs.src = ('//s10.histats.com/js15_as.js');
 <div align = "center" >
 
   <h4 style="color:red">
-    Any Question?
-  </h4>
+    Vip Tips Of The Day
+</h4>
 
-<h4>
-  CONTACT US VIA WHATSAPP +254798265307 <font style="color:blue"> OR EMAIL US ON </font> <i>palsbet1@gmail.com<i>
-  </h4>
+  {% for item in vip_tips %}
+  {% if forloop.first %}
+         <i><h4>{{item.published_date}}<h4></i>
+     {%endif%}
+  {% endfor %}
 
-  <p>
-    PalsBet is all about trust
+  <table border="2" cellpadding = "5">
+
+    <tr style='background-color: indigo'>
+  <th style='color: white'>Country</th>
+  <th style='color: white'>Home Team</th>
+  <th style='color: white'>Home Score</th>
+  <th style='color: white'>Away Score</th>
+  <th style='color: white'>Away Team</th>
+  <th style='color: white'>Prediction</th>
+  <th style='color: white'>Status</th>
+  </tr>
+
+      {% for item in vip_tips %}
+      <tr>
+          <td style='background-color: plum;' >{{ item.country }}</td>
+
+          <td >{{ item.home_team }}</td>
+
+          <td style='background-color: plum;' >{{ item.home_score}}</td>
+
+          <td style='background-color: plum;' >{{ item.away_score}}</td>
+
+          <td>{{ item.away_team}}</td>
+
+          <td style='background-color: plum;' >{{ item.prediction}}</td>
+
+          {% if item.status == 'Lost' %}
+
+          <td style='background-color: #FF5733;'>{{ item.status}}</td>
+
+          {% elif item.status == 'Won' %}
+
+          <td style='background-color: Limegreen;' >{{ item.status}}</td>
+
+          {% else %}
+
+          <td >{{ item.status}}</td>
+
+          {% endif %}
+
+
+      </tr>
+      {% endfor %}
+  </table>
+
+  <p align = "right">
+    <i>Good Luck</i>
   </p>
-
-  <p>
-    Your log in credentials are meant for you alone
-  </p>
-
-  <p>
-    Sharing them with anyone else may lead to suspension of your account
-    <p>
-  <p>
-    Use the navigation bar to check out our Services
-  </p>
-
 </div>
 
 

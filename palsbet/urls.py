@@ -1,6 +1,6 @@
 from django.urls import path, include
 
-from . views import payment, homevip, timeofsending, modeofsending, home, viewolderesults, singlebet, androidapp, jackpot, rollover, viptips, guide, howmanyodds
+from . views import rollover, punterpick, homeviptips, payment, homevip, timeofsending, modeofsending, home, viewolderesults, singlebet, androidapp, jackpot, rollover, viptips, guide, howmanyodds
 
 urlpatterns = [
 
@@ -33,4 +33,12 @@ urlpatterns = [
     path('home_vip/', homevip),
 
     path('payment/', payment),
+
+    path('homevip/', homevip),
+
+    path('homeviptips/', homeviptips),
+
+    path('homepunterpicks/', punterpick),
+
+    path('homerollover/', rollover),
 ]

@@ -63,7 +63,7 @@ class SingleBetGames(models.Model):
     def __str__(self):
        return self.home_team
 
-class VipTipsGames(models.Model):
+class VipTips(models.Model):
 
     published_date = models.DateTimeField('Date Published')
 
@@ -79,7 +79,51 @@ class VipTipsGames(models.Model):
 
     prediction = models.CharField(max_length = 100)
 
-    cathegory = models.CharField(max_length = 100, choices=[('Vip','Vip'),('Punter Pick','Punter Pick'),('Roll Over','Roll Over')])
+    status = models.CharField(max_length = 100, choices=[('Running','Running'),('Won','Won'),('Lost','Lost')])
+
+    def __str__(self):
+       return self.home_team
+
+
+class PunterPick(models.Model):
+
+    published_date = models.DateTimeField('Date Published')
+
+    country = models.CharField(max_length = 200)
+
+    home_team = models.CharField(max_length = 200)
+
+    home_score = models.IntegerField(default = 0)
+
+    away_score = models.IntegerField(default = 0)
+
+    away_team = models.CharField(max_length = 200)
+
+    prediction = models.CharField(max_length = 100)
+
+    status = models.CharField(max_length = 100, choices=[('Running','Running'),('Won','Won'),('Lost','Lost')])
+
+    def __str__(self):
+       return self.home_team
+
+
+class RollOver(models.Model):
+
+    published_date = models.DateTimeField('Date Published')
+
+    country = models.CharField(max_length = 200)
+
+    home_team = models.CharField(max_length = 200)
+
+    home_score = models.IntegerField(default = 0)
+
+    away_score = models.IntegerField(default = 0)
+
+    away_team = models.CharField(max_length = 200)
+
+    prediction = models.CharField(max_length = 100)
+
+    status = models.CharField(max_length = 100, choices=[('Running','Running'),('Won','Won'),('Lost','Lost')])
 
     def __str__(self):
        return self.home_team

@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from django.views.generic import TemplateView
 
-from . models import FreeTipsGames, SingleBetGames, VipTipsGames
+from . models import FreeTipsGames, SingleBetGames, VipTips, PunterPick, RollOver
 
 from django.utils import timezone
 
@@ -117,22 +117,58 @@ def timeofsending(request):
     return render(request, 'timeofsending.html')
 
 
-def homevip(request):
+def homeviptips(request):
 
-    model = VipTipsGames
+    model = VipTips
 
-    template_name = 'home_vip.html'
+    template_name = 'homeviptips.html'
 
     args = {}
 
-    vip_tips = VipTipsGames.objects.filter(
+    vip_tips = VipTips.objects.filter(
         published_date__lte=timezone.now()
-    ).order_by('-published_date')[:7]
+    ).order_by('-published_date')[:3]
 
 
     args ['vip_tips'] = vip_tips
 
-    return render(request, 'home_vip.html', args)
+    return render(request, 'homeviptips.html', args)
+
+
+def punterpick(request):
+
+    model = PunterPick
+
+    template_name = 'punterpick.html'
+
+    args = {}
+
+    punterpick = PunterPick.objects.filter(
+        published_date__lte=timezone.now()
+    ).order_by('-published_date')[:3]
+
+
+    args ['punterpick'] = punterpick
+
+    return render(request, 'punterpick.html', args)
+
+
+def rollover(request):
+
+    model = RollOver
+
+    template_name = 'viprollover.html'
+
+    args = {}
+
+    rollover = RollOver.objects.filter(
+        published_date__lte=timezone.now()
+    ).order_by('-published_date')[:1]
+
+
+    args ['rollover'] = rollover
+
+    return render(request, 'viprollover.html', args)
 
 def payment(request):
 
@@ -143,3 +179,11 @@ def payment(request):
 def grouped(l, n):
     for i in range(0, len(l), n):
         yield l[i:i+n]
+
+
+
+def homevip(request):
+
+    template_name = 'home_vip.html'
+
+    return render(request, 'home_vip.html')
