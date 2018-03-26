@@ -153,7 +153,7 @@ def punterpick(request):
     return render(request, 'punterpick.html', args)
 
 
-def rollover(request):
+def rolloverh(request):
 
     model = RollOver
 
