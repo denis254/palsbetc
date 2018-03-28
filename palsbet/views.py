@@ -6,6 +6,23 @@ from . models import FreeTipsGames, SingleBetGames, VipTips, PunterPick, RollOve
 
 from django.utils import timezone
 
+from . serializers import FreeTipsGamesSerializer, SingleBetGamesSerializer
+
+from rest_framework import viewsets
+
+
+class SingleBetGamesViewSet(viewsets.ModelViewSet):
+
+    queryset = SingleBetGames.objects.all()
+
+    serializer_class = SingleBetGamesSerializer
+
+class FreeTipsGamesViewSet(viewsets.ModelViewSet):
+
+    queryset = FreeTipsGames.objects.all()
+
+    serializer_class = FreeTipsGamesSerializer
+
 def home(request):
 
     model = FreeTipsGames

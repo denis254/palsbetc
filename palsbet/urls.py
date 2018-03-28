@@ -1,8 +1,20 @@
 from django.urls import path, include
 
+from palsbet import views
+
+from rest_framework import routers
+
+router = routers.DefaultRouter()
+
+router.register(r'FreeTipsGames', views.FreeTipsGamesViewSet)
+
+router.register(r'SingleBetGames', views.SingleBetGamesViewSet)
+
 from . views import rolloverh, punterpick, homeviptips, payment, homevip, timeofsending, modeofsending, home, viewolderesults, singlebet, androidapp, jackpot, rollover, viptips, guide, howmanyodds
 
 urlpatterns = [
+
+    path('freetipsp/', include(router.urls)),
 
     path('', home),
 
