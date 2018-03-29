@@ -10,56 +10,19 @@ PalsBet.com - Vip Tips
 
 {% if user.is_authenticated %}
 
-<div style="background-color:gold" style="color:white"><div align = "right">  WELCOME {{ user.username }}/   <a href="{% url 'logout' %}">LOG OUT</a></div>
+<div style="background-color:gold" style="color:white"><div align = "right">  WELCOME {{ user.username }}/   <a href="{% url 'logout' %}">LOG OUT</a></div></div>
 
-<h1 style="color: indigo" >
-PalsBet.com Vip Services
-</h1>
+<ul>
 
- <!-- Histats.com  (div with counter) --><div id="histats_counter"></div>
-<!-- Histats.com  START  (aync)-->
-<script type="text/javascript">var _Hasync= _Hasync|| [];
-_Hasync.push(['Histats.start', '1,3982097,4,19,200,40,00011111']);
-_Hasync.push(['Histats.fasi', '1']);
-_Hasync.push(['Histats.track_hits', '']);
-(function() {
-var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-hs.src = ('//s10.histats.com/js15_as.js');
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-})();</script>
-<noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?3982097&101" alt="free web tracker" border="0"></a></noscript>
-<!-- Histats.com  END  -->
+<li><a href="/homevip/" style="text-decoration:none"> Home </a></li>
 
+<li><a href="/homeviptips/" style="text-decoration:none"> Vip Tips </a></li>
 
-<table border="0" cellpadding = "8">
+<li><a href="/homepunterpicks/" style="text-decoration:none"> Punter Pick </a></li>
 
-<tr>
+<li><a href="/homerollover/" style="text-decoration:none"> Roll Over </a></li>
 
-<td>
-<a href="/homevip/" style="text-decoration:none"<i><b> Home </b></i>
-</td>
-
-<td>
-<a href="/homeviptips/" style="text-decoration:none"<i><b> Vip Tips </b></i>
-</td>
-
-<td>
-<a href="/homepunterpicks/" style="text-decoration:none"<i><b> Punter Pick </b></i>
-</td>
-
-
-<td>
-<a href="/homerollover/" style="text-decoration:none"<i><b> Roll Over </b></i>
-</td>
-
-
-</tr>
-
-</table>
-</div>
-</p>
-
-</div>
+</ul>
 
 <div align = "center" >
 
