@@ -143,3 +143,5 @@ if 'DATABASE_URL' in os.environ:
 
 admin.site.site_header = 'PalsBet Admin Panel'
 admin.site.site_title = 'PalsBet Admin Panel'
+
+ADMINS = (('Denis Kiprono', 'palsbet1@gmail.com'),)
