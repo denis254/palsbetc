@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from django.views.generic import TemplateView
 
@@ -10,6 +10,9 @@ from . serializers import FreeTipsGamesSerializer, SingleBetGamesSerializer
 
 from rest_framework import viewsets
 
+
+def optout(request):
+    return redirect("http://www.1xpredict.com/")
 
 class SingleBetGamesViewSet(viewsets.ModelViewSet):
 

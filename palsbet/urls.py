@@ -18,6 +18,8 @@ urlpatterns = [
 
     path('', home),
 
+    path('xpredict/', views.optout, name = "optout"),
+
     path('home/', home),
 
     path('viewolderesults/', viewolderesults),
