@@ -1,5 +1,6 @@
 {% extends "main_template.html" %}
 
+{% load static %}
 
 {% block title %}
 
@@ -14,6 +15,10 @@ PalsBet.com - provides free football tips and predictions, free analysis, footba
 {% endblock %}
 
 {% block over_view_contact %}
+
+   <a href="/xpredict/">
+   <img src="{% static "images/advert.png"  %}" alt="My image"  />
+   </a>
 
 {% include "over_view_contact.html" %}
 
