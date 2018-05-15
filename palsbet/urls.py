@@ -20,6 +20,8 @@ urlpatterns = [
 
     path('xpredict/', views.optout, name = "optout"),
 
+    path('crafttechsolution/', views.optout, name = "optoutc"),
+
     path('home/', home),
 
     path('viewolderesults/', viewolderesults),

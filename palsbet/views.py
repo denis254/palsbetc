@@ -14,6 +14,9 @@ from rest_framework import viewsets
 def optout(request):
     return redirect("http://www.1xpredict.com/")
 
+def optoutc(request):
+    return redirect("http://www.crafttechsolution.com/")
+
 class SingleBetGamesViewSet(viewsets.ModelViewSet):
 
     queryset = SingleBetGames.objects.all()
