@@ -1,8 +1,8 @@
 {% extends "main_template.html" %}
-
+{% load static %}
 {% block title %}
 
-PalsBet.com Log In Page
+PalsBet.com - Roll Over Plan
 
 {% endblock %}
 
@@ -16,15 +16,15 @@ PalsBet.com Log In Page
 
 <div align = "center">
 
-<h2 class="h4">Login To PalsBet Vip</h2>
+{% for item in Notifications %}
 
-<form method="post" autocomplete="off" >
-  {% csrf_token %}
-  <div style="color:blue"><b>{{ form.as_p }}</b></div>
-  <button type="submit" id="back" >Login</button>
-</form>
+<hr>
+      <h6 class="h4">{{item.Head}}</h6>
+      <p>{{item.Body}}<p>
+       <i><p align = "right" style="color:green">{{item.published_date}}<p></i>
+<hr>
+{% endfor %}
 
-</div>
 
 {% endblock %}
 

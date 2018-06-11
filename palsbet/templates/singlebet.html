@@ -13,16 +13,25 @@ PalsBet.com - Single Best
 
 {% endblock %}
 
+{% block over_view_contact %}
+
+{% include "slideshow.html" %}
+
+{% include "over_view_contact.html" %}
+
+{% endblock %}
+
 {% block content %}
 
 {% for group in single_bet_teams %}
 
 {% for item in group %}
 {% if forloop.first %}
-       <i><h4>{{item.published_date}}<h4></i>
+       <i><p>{{item.published_date}}</p></i>
    {%endif%}
 {% endfor %}
 
+<div style="overflow-x:auto;">
 <table border="2" cellpadding = "5">
 
   <tr style='background-color: indigo'>
@@ -67,23 +76,10 @@ PalsBet.com - Single Best
 
         {% endfor %}
         </table>
+      </div>
         <br>
 
 {% endfor %}
-<div align = "center">
-<h2 style="color: indigo">
-  Guide on Single Bet
-</h2>
-<p>
-Single Bet Prediction is one of the services we have been providing for our customers. It is the most widespread one and well-known among the Punters society due to the fact it does not engage you with including another football events to the same stake. So, the team of palsbet.com always pick for you only one more secured prediction for one football event.
-</p>
-<p>
- Our strong recommendation is not to combine our tips with those randomly picked by you or those from any other sources. Thus, the percentage of winning rate is among the highest. By following our selection of single bet, the team of palsbet.com guarantee you at least 50 % success of your stakes and odds always above 1.50.
-</p>
-<p>
-  All betting selections (1X2, Both Teams to Score, Draw No Bet, Over Goals Scored, Under Goals Scored, Asian Handicap and more) can be used in the preparation of our predictions without any restrictions and limits. Due to the fact that sometimes unforeseen circumstances might affect the final outcome of the matches, you will get our Single Prediction everyday. Please, pay attention that we could not guarantee absolutely precise algorithm for success rate as it is always calculated on a long-term basis.
-</p>
-</div>
 
 {% endblock %}
 

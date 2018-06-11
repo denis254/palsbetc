@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 
 from django.views.generic import TemplateView
 
-from . models import FreeTipsGames, SingleBetGames, VipTips, PunterPick, RollOver
+from . models import FreeTipsGames, SingleBetGames, VipTips, PunterPick, RollOver, Notification
 
 from django.utils import timezone
 
@@ -10,11 +10,14 @@ from . serializers import FreeTipsGamesSerializer, SingleBetGamesSerializer
 
 from rest_framework import viewsets
 
+from . forms import RegistrationForm
+
+from django.contrib import messages
+
+def play(request):
+    return redirect("https://play.google.com/store/apps/details?id=com.a1xpredict.a1xpredict")
 
 def optout(request):
-    return redirect("http://www.1xpredict.com/")
-
-def optoutc(request):
     return redirect("http://www.crafttechsolution.com/")
 
 class SingleBetGamesViewSet(viewsets.ModelViewSet):
@@ -52,8 +55,20 @@ def androidapp(request):
 
     return render(request, 'androidapp.html')
 
+def information(request):
+
+    template_name = 'information.html'
+
+    return render(request, 'information.html')
+
 
 def jackpot(request):
+
+    template_name = 'hjackpot.html'
+
+    return render(request, 'hjackpot.html')
+
+def jackpotp(request):
 
     template_name = 'jackpot.html'
 
@@ -64,6 +79,23 @@ def rollover(request):
     template_name = 'rollover.html'
 
     return render(request, 'rollover.html')
+
+def notification(request):
+
+    model = Notification
+
+    template_name = 'notification.html'
+
+    args = {}
+
+    Notifications = Notification.objects.filter(
+        published_date__lte=timezone.now()
+    ).order_by('-published_date')[:30]
+
+
+    args ['Notifications'] = Notifications
+
+    return render(request, 'notification.html', args)
 
 def viptips(request):
 
@@ -186,7 +218,7 @@ def rolloverh(request):
 
     rollover = RollOver.objects.filter(
         published_date__lte=timezone.now()
-    ).order_by('-published_date')[:1]
+    ).order_by('-published_date')[:4]
 
 
     args ['rollover'] = rollover
@@ -210,3 +242,26 @@ def homevip(request):
     template_name = 'home_vip.html'
 
     return render(request, 'home_vip.html')
+
+def register(request):
+
+    if request.method == 'POST':
+
+        form = RegistrationForm(request.POST)
+
+        if form.is_valid():
+
+            user = form.save()
+
+            user.save()
+
+
+            messages.success(request, 'Registration successful.Recharge your account to access our vip services')
+
+            return redirect('/information/')
+
+    else:
+        form = RegistrationForm()
+
+
+    return render(request, 'account/register.html', {'form':form})

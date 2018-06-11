@@ -10,7 +10,7 @@ router.register(r'FreeTipsGames', views.FreeTipsGamesViewSet)
 
 router.register(r'SingleBetGames', views.SingleBetGamesViewSet)
 
-from . views import rolloverh, punterpick, homeviptips, payment, homevip, timeofsending, modeofsending, home, viewolderesults, singlebet, androidapp, jackpot, rollover, viptips, guide, howmanyodds
+from . views import rolloverh, play, information, register, notification, jackpotp, punterpick, homeviptips, payment, homevip, timeofsending, modeofsending, home, viewolderesults, singlebet, androidapp, jackpot, rollover, viptips, guide, howmanyodds
 
 urlpatterns = [
 
@@ -18,11 +18,17 @@ urlpatterns = [
 
     path('', home),
 
-    path('xpredict/', views.optout, name = "optout"),
-
-    path('crafttechsolution/', views.optoutc, name = "optoutc"),
+    path('play/', play),
 
     path('home/', home),
+
+    path('information/', information),
+
+    path('register/', register),
+
+    path('jackpot/', jackpot),
+
+    path('crafttechsolution/', views.optout, name = "optout"),
 
     path('viewolderesults/', viewolderesults),
 
@@ -30,7 +36,7 @@ urlpatterns = [
 
     path('androidapp/', androidapp),
 
-    path('jackpot/', jackpot),
+    path('homejackpot/', jackpotp),
 
     path('rollover/', rollover),
 
@@ -49,6 +55,8 @@ urlpatterns = [
     path('home_vip/', homevip),
 
     path('payment/', payment),
+
+    path('notification/', notification),
 
     path('homevip/', homevip),
 

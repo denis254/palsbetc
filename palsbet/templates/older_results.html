@@ -14,7 +14,7 @@ PalsBet.com - Soccer older results
 
 {% block content %}
 
-<h2 style="color:red">
+<h2 >
   Recent Soccer Results
 </h2>
 
@@ -22,10 +22,11 @@ PalsBet.com - Soccer older results
 
 {% for item in group %}
 {% if forloop.first %}
-       <i><h4>{{item.published_date}}<h4></i>
+       <i><p>{{item.published_date}}</p></i>
    {%endif%}
 {% endfor %}
 
+<div style="overflow-x:auto;">
 <table border="2" cellpadding = "5">
 
   <tr style='background-color: indigo'>
@@ -70,6 +71,7 @@ PalsBet.com - Soccer older results
 
         {% endfor %}
         </table>
+      </div>
         <br>
         <br>
 
