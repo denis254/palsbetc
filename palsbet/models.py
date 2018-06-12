@@ -14,6 +14,38 @@ from django.contrib.auth.models import User
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', User)
 
+from django.db import models
+
+# Create your models here.
+
+from django.db import models
+from django.utils import timezone
+
+import datetime
+
+
+from django.contrib.auth.models import User
+
+from django.db.models.signals import post_save
+from django.dispatch import receiver
+
+class Profile(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+    def __str__(self):  # __unicode__ for Python 2
+        return self.user.username
+
+
+@receiver(post_save, sender=User)
+def create_or_update_user_profile(sender, instance, created, **kwargs):
+    if created:
+        Profile.objects.create(user=instance)
+    instance.profile.save()
+
 class Visitor(models.Model):
     user = models.OneToOneField(AUTH_USER_MODEL, null=False, related_name='visitor', on_delete=models.CASCADE,)
     session_key = models.CharField(null=False, max_length=40)
