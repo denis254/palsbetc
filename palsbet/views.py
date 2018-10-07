@@ -80,6 +80,12 @@ def rollover(request):
 
     return render(request, 'rollover.html')
 
+def privacy(request):
+
+    template_name = 'privacy.html'
+
+    return render(request, 'privacy.html')
+
 def notification(request):
 
     model = Notification
