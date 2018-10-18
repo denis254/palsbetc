@@ -3,9 +3,25 @@ from django.contrib import admin
 from . models import FreeTipsGames,SingleBetGames,VipTips, PunterPick, RollOver
 
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.models import User
+
 from import_export.admin import ImportExportModelAdmin
+
+from django.contrib.auth.models import User
+
+from django.contrib.auth.admin import UserAdmin as BaseAdmin
+
+from import_export import resources
+
+class UserResource(resources.ModelResource):
+    class Meta:
+        model = User
+
+class UserAdmin(BaseAdmin, ImportExportModelAdmin):
+    resource_class = UserResource
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
+
 
 @admin.register(SingleBetGames)
 class SingleBetGamesAdmin(ImportExportModelAdmin):
